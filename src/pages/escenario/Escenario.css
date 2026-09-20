@@ -1,0 +1,151 @@
+.escenario {
+    isolation: isolate;
+    width: min(670px, calc(100% - 24px));
+    height: 300px;
+    margin: 30px auto;
+    padding: 0 82px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    background: #e8c07d;
+}
+
+/* Cielo (atardecer del desierto) */
+.escenario::before {
+    /* Cielo del escenario. */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 45%;
+    background: linear-gradient(#ff9a56, #ffd27f);
+    z-index: 0;
+}
+
+/* Terreno (arena) */
+.escenario::after {
+    /* Arena del escenario. */
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    background: linear-gradient(#e8c07d, #c9a05c);
+    z-index: 0;
+}
+
+h2 {
+    font-family: Tahoma;
+}
+
+/* Sol */
+.sol {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    background: #fff4c2;
+    border-radius: 50%;
+    box-shadow: 0 0 40px 15px rgba(255, 244, 194, 0.8);
+    z-index: 1;
+}
+
+/* Pirámide grande */
+.piramide {
+    position: absolute;
+    bottom: 40%;
+    left: 340px;
+    width: 0;
+    height: 0;
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    border-bottom: 100px solid #d9a066;
+    z-index: 1;
+}
+
+/* Pirámide pequeña */
+.piramide-chica {
+    left: 420px;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 60px solid #c78b52;
+}
+
+/* Texto de posición */
+.posicion-texto {
+    position: relative;
+    z-index: 1;
+    font-family: Tahoma;
+    font-weight: bold;
+    color: var(--color-text);
+    margin-top: 10px;
+}
+
+h2 {
+    font-family: Tahoma;
+    text-align: center;
+    width: 100%;
+}
+
+/* Controles (botones) */
+.controles {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.controles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.controles button {
+    font-size: 24px;
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    background-color: #d9a066;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.controles button:hover {
+    border: 2px solid var(--color-accent);
+    box-shadow: 0 5px 10px rgba(74, 47, 24, 0.25);
+    transform: translateY(-2px);
+}
+
+.controles button:active {
+    transform: scale(0.95);
+}
+
+.posicion-texto {
+    text-align: center;
+    font-family: Tahoma;
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--color-text);
+}
+
+/* para que el camello este en la parte de abajo de la pantalla */
+.contenedor-camello {
+    /* Mantiene el camello en la zona inferior. */
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}

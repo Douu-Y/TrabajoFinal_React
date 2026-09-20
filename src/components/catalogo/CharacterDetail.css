@@ -1,0 +1,146 @@
+.detalle-modal {
+    /* Capa superior que enfoca el detalle de la carta. */
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    background: color-mix(in srgb, var(--color-text) 42%, transparent);
+}
+
+.detalle-caja {
+    position: relative;
+    display: flex;
+    width: min(100%, 760px);
+    max-height: min(90vh, 680px);
+    overflow: auto;
+    border-radius: 20px;
+}
+
+.detalle-cerrar {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    background: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.detalle-imagen {
+    width: 42%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+.detalle-contenido {
+    flex: 1;
+    padding: 2rem;
+}
+
+.detalle-datos {
+    /* Distribuye las especificaciones en columnas. */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.detalle-datos div {
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+}
+
+.detalle-descripcion {
+    grid-column: 1 / -1;
+}
+
+.detalle-datos dt {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.detalle-datos dd {
+    margin-top: 0.25rem;
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+}
+
+.detalle-pie {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.detalle-pie button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detalle-compra {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.detalle-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.35rem;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+}
+
+.detalle-cantidad button {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+    border-radius: 7px;
+    background: var(--color-page);
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+@media (max-width: 640px) {
+    .detalle-caja {
+        display: block;
+    }
+
+    .detalle-imagen {
+        width: 100%;
+        height: 220px;
+    }
+
+    .detalle-contenido {
+        padding: 1.25rem;
+    }
+
+    .detalle-datos {
+        grid-template-columns: 1fr;
+    }
+
+    .detalle-pie {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .detalle-compra {
+        justify-content: space-between;
+        width: 100%;
+    }
+}
